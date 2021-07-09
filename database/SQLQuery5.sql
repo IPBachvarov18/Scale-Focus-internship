@@ -1,14 +1,12 @@
 USE [master]
 GO
-/****** Object:  Database [Project Managment]    Script Date: 7/9/2021 10:22:57 AM ******/
+/****** Object:  Database [Project Managment]    Script Date: 7/9/2021 11:21:57 PM ******/
 CREATE DATABASE [Project Managment]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'Project Managment', FILENAME = N'C:\Users\IPBachvarov18\Project Managment.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+( NAME = N'Project Managment', FILENAME = N'D:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\Project Managment.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
  LOG ON 
-( NAME = N'Project Managment_log', FILENAME = N'C:\Users\IPBachvarov18\Project Managment_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
-GO
-ALTER DATABASE [Project Managment] SET COMPATIBILITY_LEVEL = 130
+( NAME = N'Project Managment_log', FILENAME = N'D:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\Project Managment_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
 GO
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
 begin
@@ -73,21 +71,9 @@ ALTER DATABASE [Project Managment] SET TARGET_RECOVERY_TIME = 60 SECONDS
 GO
 ALTER DATABASE [Project Managment] SET DELAYED_DURABILITY = DISABLED 
 GO
-ALTER DATABASE [Project Managment] SET QUERY_STORE = OFF
-GO
 USE [Project Managment]
 GO
-ALTER DATABASE SCOPED CONFIGURATION SET LEGACY_CARDINALITY_ESTIMATION = OFF;
-GO
-ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 0;
-GO
-ALTER DATABASE SCOPED CONFIGURATION SET PARAMETER_SNIFFING = ON;
-GO
-ALTER DATABASE SCOPED CONFIGURATION SET QUERY_OPTIMIZER_HOTFIXES = OFF;
-GO
-USE [Project Managment]
-GO
-/****** Object:  Table [dbo].[Project]    Script Date: 7/9/2021 10:22:57 AM ******/
+/****** Object:  Table [dbo].[Project]    Script Date: 7/9/2021 11:21:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -104,7 +90,7 @@ CREATE TABLE [dbo].[Project](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[ProjectTeams]    Script Date: 7/9/2021 10:22:57 AM ******/
+/****** Object:  Table [dbo].[ProjectTeams]    Script Date: 7/9/2021 11:21:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -114,7 +100,7 @@ CREATE TABLE [dbo].[ProjectTeams](
 	[ProjectId] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tasks]    Script Date: 7/9/2021 10:22:57 AM ******/
+/****** Object:  Table [dbo].[Tasks]    Script Date: 7/9/2021 11:21:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -133,7 +119,7 @@ CREATE TABLE [dbo].[Tasks](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Team]    Script Date: 7/9/2021 10:22:57 AM ******/
+/****** Object:  Table [dbo].[Team]    Script Date: 7/9/2021 11:21:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -148,7 +134,7 @@ CREATE TABLE [dbo].[Team](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TeamUsers]    Script Date: 7/9/2021 10:22:57 AM ******/
+/****** Object:  Table [dbo].[TeamUsers]    Script Date: 7/9/2021 11:21:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -158,15 +144,15 @@ CREATE TABLE [dbo].[TeamUsers](
 	[TeamId] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[User]    Script Date: 7/9/2021 10:22:57 AM ******/
+/****** Object:  Table [dbo].[User]    Script Date: 7/9/2021 11:21:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[User](
-	[Id] [int] NOT NULL,
+	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Username] [nvarchar](50) NOT NULL,
-	[Password] [nchar](10) NULL,
+	[Password] [nvarchar](50) NOT NULL,
 	[First_name] [nvarchar](50) NOT NULL,
 	[Last_name] [nvarchar](50) NOT NULL,
 	[IsAdmin] [bit] NOT NULL,
@@ -176,7 +162,7 @@ CREATE TABLE [dbo].[User](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Work log]    Script Date: 7/9/2021 10:22:57 AM ******/
+/****** Object:  Table [dbo].[Work log]    Script Date: 7/9/2021 11:21:57 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -187,6 +173,12 @@ CREATE TABLE [dbo].[Work log](
 	[date] [date] NOT NULL,
 	[TaskIdWorkOn] [int] NOT NULL
 ) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[User] ON 
+GO
+INSERT [dbo].[User] ([Id], [Username], [Password], [First_name], [Last_name], [IsAdmin]) VALUES (1, N'dsadas', N'aasdad', N'dsada', N'dasdsad', 0)
+GO
+SET IDENTITY_INSERT [dbo].[User] OFF
 GO
 ALTER TABLE [dbo].[Tasks] ADD  CONSTRAINT [DF_Tasks_LastModifyedAt]  DEFAULT (getdate()) FOR [LastModifyedAt]
 GO
@@ -229,6 +221,31 @@ ALTER TABLE [dbo].[Work log]  WITH CHECK ADD  CONSTRAINT [FK_Work log_Tasks] FOR
 REFERENCES [dbo].[Tasks] ([Id])
 GO
 ALTER TABLE [dbo].[Work log] CHECK CONSTRAINT [FK_Work log_Tasks]
+GO
+/****** Object:  StoredProcedure [dbo].[RegisterUser]    Script Date: 7/9/2021 11:21:57 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE   PROCEDURE [dbo].[RegisterUser]
+@username nvarchar(50),
+@passowrd nvarchar(50),
+@firstName nvarchar(50),
+@lastName nvarchar(50),
+@idOfCretor int,
+@idOfLastChange int
+
+AS 
+INSERT INTO  [User] (Username,
+[Password],
+First_name,
+Last_name,
+IsAdmin)VALUES(@username ,
+@passowrd ,
+@firstName ,
+@lastName ,
+0
+)
 GO
 USE [master]
 GO

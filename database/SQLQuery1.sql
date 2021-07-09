@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [Project Managment]    Script Date: 7/9/2021 9:40:00 AM ******/
+/****** Object:  Database [Project Managment]    Script Date: 7/9/2021 10:22:57 AM ******/
 CREATE DATABASE [Project Managment]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -87,7 +87,7 @@ ALTER DATABASE SCOPED CONFIGURATION SET QUERY_OPTIMIZER_HOTFIXES = OFF;
 GO
 USE [Project Managment]
 GO
-/****** Object:  Table [dbo].[Project]    Script Date: 7/9/2021 9:40:00 AM ******/
+/****** Object:  Table [dbo].[Project]    Script Date: 7/9/2021 10:22:57 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -104,7 +104,17 @@ CREATE TABLE [dbo].[Project](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tasks]    Script Date: 7/9/2021 9:40:00 AM ******/
+/****** Object:  Table [dbo].[ProjectTeams]    Script Date: 7/9/2021 10:22:57 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ProjectTeams](
+	[TeamId] [int] NOT NULL,
+	[ProjectId] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tasks]    Script Date: 7/9/2021 10:22:57 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -123,7 +133,7 @@ CREATE TABLE [dbo].[Tasks](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Team]    Script Date: 7/9/2021 9:40:00 AM ******/
+/****** Object:  Table [dbo].[Team]    Script Date: 7/9/2021 10:22:57 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -138,7 +148,7 @@ CREATE TABLE [dbo].[Team](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TeamUsers]    Script Date: 7/9/2021 9:40:00 AM ******/
+/****** Object:  Table [dbo].[TeamUsers]    Script Date: 7/9/2021 10:22:57 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -148,7 +158,7 @@ CREATE TABLE [dbo].[TeamUsers](
 	[TeamId] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[User]    Script Date: 7/9/2021 9:40:00 AM ******/
+/****** Object:  Table [dbo].[User]    Script Date: 7/9/2021 10:22:57 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -166,7 +176,7 @@ CREATE TABLE [dbo].[User](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Work log]    Script Date: 7/9/2021 9:40:00 AM ******/
+/****** Object:  Table [dbo].[Work log]    Script Date: 7/9/2021 10:22:57 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -184,6 +194,16 @@ ALTER TABLE [dbo].[Project]  WITH CHECK ADD  CONSTRAINT [FK_Project_Tasks] FOREI
 REFERENCES [dbo].[Tasks] ([Id])
 GO
 ALTER TABLE [dbo].[Project] CHECK CONSTRAINT [FK_Project_Tasks]
+GO
+ALTER TABLE [dbo].[ProjectTeams]  WITH CHECK ADD  CONSTRAINT [FK_ProjectTeams_Project] FOREIGN KEY([ProjectId])
+REFERENCES [dbo].[Project] ([Id])
+GO
+ALTER TABLE [dbo].[ProjectTeams] CHECK CONSTRAINT [FK_ProjectTeams_Project]
+GO
+ALTER TABLE [dbo].[ProjectTeams]  WITH CHECK ADD  CONSTRAINT [FK_ProjectTeams_Team] FOREIGN KEY([TeamId])
+REFERENCES [dbo].[Team] ([Id])
+GO
+ALTER TABLE [dbo].[ProjectTeams] CHECK CONSTRAINT [FK_ProjectTeams_Team]
 GO
 ALTER TABLE [dbo].[Tasks]  WITH CHECK ADD  CONSTRAINT [FK_Tasks_Project] FOREIGN KEY([ProjectID])
 REFERENCES [dbo].[Project] ([Id])

@@ -2,7 +2,7 @@
   "name": "scale-focus-internship",
   "version": "1.0.0",
   "description": "<p align=\"center\">\r   <a href=\"https://github.com/IPBachvarov18/Scale-Focus-internship\" rel=\"noopener\">",
-  "main": "app.js",
+  "main": "website/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

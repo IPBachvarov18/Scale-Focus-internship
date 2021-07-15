@@ -33,5 +33,5 @@ This is mine internship project for ScaleFocus which is project managment app. I
 
 ## 📋 Presentation and Documentation <a name="documentation"></a>
 
-- [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/ipbachvarov18_codingburgas_bg/Ee8Wwx0JIxVHs59QMC4Q5goBL4K-JqAKXWlvdrvRZfJDrA?e=jcrdso)
+- [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/ipbachvarov18_codingburgas_bg/EehTNd1zintKp1jkrtR-xMoBTy_bCDbeQvAJPUEri0gvJg?e=SnvM7P)
 - [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/ipbachvarov18_codingburgas_bg/ESddEIB1_Z1Ju10oKkQDgPIBGWVDplptgd3eV2UJfUSWxw?e=Q9kuKS)

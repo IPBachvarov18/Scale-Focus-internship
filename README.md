@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h1 align="center">Project managment</h1>
+<h1 align="center">Project management</h1>
 
 <div align="center">
 
@@ -17,17 +17,12 @@
 ## 📝 Table of Contents
 
 - [Description](#description)
-- [Getting Started](#installation)
 - [Technologies used](#techs)
 - [Presentation and Documentation](#documentation)
 
 ## 📖 Description <a name="description"></a>
 
 This is mine internship project for ScaleFocus which is project managment app. It has functionalities for editing deleting and adding users,teams, projects and tasks.
-
-## 📮 Getting Started <a name="installation"></a>
-
-To be able to run the project you clone the project.
 
 
 ## 💻 Built Using <a name="techs"></a>
@@ -38,5 +33,5 @@ To be able to run the project you clone the project.
 
 ## 📋 Presentation and Documentation <a name="documentation"></a>
 
-- [Documentation]()
-- [Presentation]()
+- [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/ipbachvarov18_codingburgas_bg/EehTNd1zintKp1jkrtR-xMoBTy_bCDbeQvAJPUEri0gvJg?e=SnvM7P)
+- [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/ipbachvarov18_codingburgas_bg/ESddEIB1_Z1Ju10oKkQDgPIBGWVDplptgd3eV2UJfUSWxw?e=Q9kuKS)

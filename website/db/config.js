@@ -1,10 +1,10 @@
 const sqlConfig = {
     database: "Project Managment",
-    server: ".\\SQLEXPRESS",
+    server: "(localdb)\\MSSQLLocalDB", //"(localdb)\\MSSQLLocalDB",".\\SQLEXPRESS"
     pool: {
         max: 10,
         min: 0,
-        idleTimeoutMillis: 30000,
+        idleTimeoutMillis: 30000
     },
     options: {
         trustedConnection: true,

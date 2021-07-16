@@ -5,7 +5,7 @@
 const sql = require("mssql/msnodesqlv8");
 const sqlConfig = {
     database: "Project Managment",
-    server: ".\\SQLEXPRESS",
+    server: "(localdb)\\MSSQLLocalDB)",
     pool: {
         max: 10,
         min: 0,

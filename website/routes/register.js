@@ -20,14 +20,13 @@ router.post("/register", async function(req, res) {
         console.log(req.body);
        
         const pool = await sql.connect(config);
-        const result = await pool
-            .request()
+        const result = await pool.request()
             .input("Username", sql.NVarChar, req.body.Username)
             .input("First_Name", sql.NVarChar, req.body.First_Name)
             .input("Last_Name", sql.NVarChar, req.body.Last_Name)
             .input("Password", sql.NVarChar, req.body.Password)
-            .query `INSERT INTO Users (Username, First_Name, Last_Name, Password)
-            VALUES (@Username, @First_Name, @Last_Name, @Password)`;
+            .query ( `INSERT INTO Users (Username, First_Name, Last_Name, Password)
+                    VALUES (@Username, @First_Name, @Last_Name, @Password)`);
         console.log(result);
     } catch (e) {
         console.log(e);
@@ -39,7 +38,7 @@ router.post("/register", async function(req, res) {
         } else {}
     }
 
-    res.redirect("register");
+    res.redirect("/register");
 });
 
 module.exports = router;
